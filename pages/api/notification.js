@@ -7,9 +7,13 @@ webPush.setVapidDetails(
 );
 
 export default (req, res) => {
+  console.log(req);
   if (req.method == "POST") {
-    const { subscription } = req.body;
-
+    const { event,trigger } = req.body;
+    switch (trigger.name) {
+      case 'USER_ADDED':
+        
+    }
     webPush
       .sendNotification(
         subscription,

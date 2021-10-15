@@ -8,13 +8,29 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "vapid": "web-push generate-vapid-keys"
+    "vapid": "web-push generate-vapid-keys",
+    "ngrok": "ngrok http 3000"
   },
   "dependencies": {
+    "@apollo/client": "^3.4.16",
+    "@chakra-ui/icons": "^1.0.15-next.0",
+    "@chakra-ui/react": "^1.6.9",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "cors": "^2.8.5",
+    "framer-motion": "^4.1.17",
+    "graphql": "^15.6.1",
+    "graphql-request": "^3.5.0",
+    "immer": "^9.0.6",
+    "jsonwebtoken": "^8.5.1",
     "next": "^11.1.0",
+    "next-auth": "3.2.0",
     "next-pwa": "latest",
+    "ngrok": "^4.2.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "web-push": "^3.4.5"
+    "sqlite3": "^5.0.2",
+    "web-push": "^3.4.5",
+    "zustand": "^3.5.13"
   }
 }
