@@ -8,6 +8,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "startparallel": "npm run start & npm run ngrok",
     "vapid": "web-push generate-vapid-keys",
     "ngrok": "ngrok http 3000"
   },
