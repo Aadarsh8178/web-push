@@ -92,7 +92,6 @@ export default () => {
       <Head>
         <title>next-pwa example</title>
       </Head>
-      <Header />
       <h1>Next.js + PWA = AWESOME!</h1>
       <button onClick={subscribeButtonOnClick} disabled={isSubscribed}>
         Subscribe

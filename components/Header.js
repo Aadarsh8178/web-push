@@ -3,11 +3,14 @@ import { useRouter } from "next/router";
 import DarkModeSwitch from "./DarkModeSwitch";
 import { Flex, Text } from "@chakra-ui/layout";
 import { Button, Image } from "@chakra-ui/react";
+import { useColorMode } from "@chakra-ui/color-mode";
+import { BellIcon } from "@chakra-ui/icons";
 
 // The approach used in this component shows how to build a sign in and sign out
 // component that works on pages which support both client and server side
 // rendering, and avoids any flash incorrect content on initial page load.
 export default function Header() {
+  const { colorMode } = useColorMode();
   const [session, loading] = useSession();
   const router = useRouter();
 
@@ -16,11 +19,18 @@ export default function Header() {
       dir="row"
       justifyContent="space-between"
       w="100%"
-      pt={4}
+      py={4}
       as="header"
       px="1rem"
+      borderBottom="1px solid rgba(255, 255, 255, 0.16)"
+      height="4rem"
     >
-      <Text>Ping Me</Text>
+      <Flex alignItems="center">
+        <BellIcon
+          color={colorMode === "dark" ? "white" : "black"}
+          fontSize="1.6rem"
+        />
+      </Flex>
       <Flex dir="row">
         {!session && (
           <Button

@@ -12,12 +12,15 @@ import { Flex, Stack } from "@chakra-ui/layout";
 import { Spinner } from "@chakra-ui/spinner";
 import useStore from "../store";
 import { SET_USER } from "../store/selectors";
+import Sidebar from "../components/Sidebar";
+import Header from "../components/Header";
 const httpLink = createHttpLink({
   uri: "https://creative-caiman-82.hasura.app/v1/graphql",
 });
 
 let getClient = async () => {
-  const session = await fetch("/api/session").then((res) => res.json());
+  const session = await fetch("/api/auth/session").then((res) => res.json());
+  console.log("SESSION API CALL", session);
   const authLink = setContext((_, { headers }) => {
     return {
       headers: {
@@ -73,9 +76,15 @@ export default function App({ Component, pageProps }) {
       <ChakraProvider>
         {client ? (
           <ApolloProvider client={client}>
-            <Stack align="center" w="100vw">
-              <Component {...pageProps} />
-            </Stack>
+            <div>
+              <Header />
+              <Flex style={{ marginTop: "0 !important" }}>
+                <Sidebar />
+                <div style={{ width: "100%" }}>
+                  <Component {...pageProps} />
+                </div>
+              </Flex>
+            </div>
           </ApolloProvider>
         ) : (
           <Flex align="center" justify="center" w="100vw" height="100vh">
